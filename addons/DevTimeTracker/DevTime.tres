@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkyju2ncb1lv6"]
+
+[ext_resource type="Script" path="res://addons/DevTimeTracker/DevTime.gd" id="1_bfjeo"]
+
+[resource]
+script = ExtResource("1_bfjeo")
+time_elapsed = 3928.84
+sec = 28
+minutes = 5
+hours = 1
+days = 0

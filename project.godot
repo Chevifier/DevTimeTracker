@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+development_time_elapsed=24.6281
+dev_time_elapsed=238.902
+
+[application]
+
+config/name="Dev Time Tracker"
+run/main_scene="res://addons/DevTimeTracker/dev_timer_ui.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Time_Track="*res://addons/DevTimeTracker/Time_Track.gd"
+
+[editor]
+
+export/convert_text_resources_to_binary=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/DevTimeTracker/plugin.cfg")
+
+[global]
+
+development_time_elapsed=30.0

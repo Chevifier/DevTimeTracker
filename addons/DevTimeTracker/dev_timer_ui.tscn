@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://fhju6d1gkf38"]
+
+[ext_resource type="Script" path="res://addons/DevTimeTracker/Dev_Timer_UI.gd" id="1_t0naa"]
+
+[node name="GameDev Tracker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0naa")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vb" type="VBoxContainer" parent="vb"]
+layout_mode = 2
+alignment = 1
+
+[node name="Project_name" type="Label" parent="vb/vb"]
+layout_mode = 2
+text = "Dev Time Tracker"
+horizontal_alignment = 1
+
+[node name="Time_Elapsed" type="Label" parent="vb/vb"]
+layout_mode = 2
+text = "0000 Days 
+ 01 : 05 : 28"
+horizontal_alignment = 1
+
+[node name="hb" type="HBoxContainer" parent="vb"]
+layout_mode = 2
+alignment = 1
+
+[node name="PAUSE" type="Button" parent="vb/hb"]
+layout_mode = 2
+toggle_mode = true
+text = "PAUSE"
+
+[node name="RESET" type="Button" parent="vb/hb"]
+layout_mode = 2
+text = "RESET"
+
+[node name="WARN1" type="ConfirmationDialog" parent="."]
+dialog_text = "ARE YOU SURE?"
+
+[node name="WARN2" type="ConfirmationDialog" parent="."]
+ok_button_text = "DELETE RECORD!"
+dialog_text = "LAST WARNING...."
+
+[node name="NoActivityPauseTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 30.0
+autostart = true
+
+[node name="PAUSED_LABEL" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 155.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.482353, 0.47451, 0, 1)
+theme_override_font_sizes/font_size = 44
+text = "AUTO
+PAUSED"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="vb/hb/PAUSE" to="." method="_on_pause_toggled"]
+[connection signal="pressed" from="vb/hb/RESET" to="." method="_on_reset_pressed"]
+[connection signal="confirmed" from="WARN1" to="." method="_on_warn_1_confirmed"]
+[connection signal="confirmed" from="WARN2" to="." method="_on_warn_2_confirmed"]
+[connection signal="timeout" from="NoActivityPauseTimer" to="." method="_on_no_activity_pause_timer_timeout"]
